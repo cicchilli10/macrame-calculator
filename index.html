@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Macramê</title>
+</head>
+<body>
+    <h1>Calculadora de Macramê</h1>
+    <form>
+        <label for="fio-teste">Quantidade de fio usado no teste (cm):</label>
+        <input type="number" id="fio-teste" required><br><br>
+
+        <label for="medida-teste">Medida obtida no teste (cm):</label>
+        <input type="number" id="medida-teste" required><br><br>
+
+        <label for="medida-desejada">Medida desejada (cm):</label>
+        <input type="number" id="medida-desejada" required><br><br>
+
+        <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+
+    <h2>Resultado:</h2>
+    <p id="resultado"></p>
+
+    <script>
+        function calcular() {
+            const fioTeste = parseFloat(document.getElementById('fio-teste').value);
+            const medidaTeste = parseFloat(document.getElementById('medida-teste').value);
+            const medidaDesejada = parseFloat(document.getElementById('medida-desejada').value);
+
+            const fioNecessario = (fioTeste * medidaDesejada) / medidaTeste;
+            document.getElementById('resultado').innerText = `Quantidade de fio necessária: ${fioNecessario.toFixed(2)} cm`;
+        }
+    </script>
+</body>
+</html>
